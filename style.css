@@ -1,18 +1,26 @@
-body {
-    background-color: #101010;
+:root {
+    --background: #101010;
+    --nmShadow1: rgba(7, 7, 7, 1);
+    --nmShadow2: rgba(62, 62, 62, 0.5);
+    --textColorPrimary: rgba(255, 255, 255, 0.8);
+    --textColorEnabled: rgba(130, 250, 100, 0.8);
+    --textColorDisabled: rgba(250, 50, 50, 0.5);
 }
 
+body {
+    background-color: var(--background);
+}
 
 .magic8ball {
     opacity: 100%;
 }
 
 .ball {
-    height: 50vh;
+    height: 40vh;
     width: auto;
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 30vh;
     transform: translate(-50%, -50%);
     animation: float 6s ease-in-out infinite;
 }
@@ -20,14 +28,23 @@ body {
 .shadow {
     position: absolute;
     left: 50%;
-    top: 55%;
+    top: 40vh;
+    /* transform: translate(-50%, 0%) perspective(20px) rotateX(6deg) scale(1, .4); */
     transform: translate(-50%, 0%) perspective(20px) rotateX(6deg) scale(1, .4);
-    width: 300px;
-    height: 300px;
+    width: 30vh;
+    height: 30vh;
     background-color: black;
     border-radius: 50%;
-    background: radial-gradient(rgba(0, 0, 0, 0.8) 20px, transparent 150px);
+    background: radial-gradient(rgba(0, 0, 0, 0.8) 0px, transparent 10vh);
     animation: pulse 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.animationToggle {
+    transform: perspective(18px) rotateX(8deg);
+    position: absolute;
+    right: 35%;
+    top: 53vh;
 }
 
 @keyframes float {
