@@ -15,7 +15,7 @@ body {
     opacity: 100%;
 }
 
-.ball {
+#theball {
     height: 40vh;
     width: auto;
     position: absolute;
@@ -45,6 +45,15 @@ body {
     position: absolute;
     right: 35%;
     top: 53vh;
+}
+
+#theQuestion {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 80%;
+    right: 50%;
+    transform: translate(50%, 0%);
 }
 
 @keyframes float {
