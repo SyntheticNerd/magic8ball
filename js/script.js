@@ -1,12 +1,44 @@
+Date.prototype.today = function () {
+    return ((this.getDate() < 10) ? "0" : "") + this.getDate() + "/" + (((this.getMonth() + 1) < 10) ? "0" : "") + (this.getMonth() + 1) + "/" + this.getFullYear();
+}
+
+// For the time now
+Date.prototype.timeNow = function () {
+    return ((this.getHours() < 10) ? "0" : "") + this.getHours() + ":" + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes(); // + ":" + ((this.getSeconds() < 10) ? "0" : "") + this.getSeconds();
+}
+
+function randomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let colapsableDoc = document.getElementById("collapsableDoc");
+let input = document.getElementById("theQuestion");
 let magicball = document.getElementById("theball");
-let shadow = document.querySelector(".shadow");
 let animbutton = document.getElementById("animationToggle");
 let theQuestion = document.getElementById("theQuestion");
+let shadow = document.querySelector(".shadow");
 
-let testest = document.querySelector(".testball");
+let testBurger = new JSBurgerMenu(colapsableDoc, "40px");
+testBurger.draw();
+
+let history = new GridDoc(colapsableDoc, null, "1px", "1px", "600px", "500px");
+history.draw();
 
 let animBTN = new JSCheckBox(animbutton, 1, "Animation </br> Active", "Animation </br> Inactive");
-animBTN.initialize();
+animBTN.draw();
+
+animbutton.addEventListener("click", () => {
+    sessionStorage.clear();
+    if (animBTN.input.checked) {
+        magicball.style.animation = "none";
+        shadow.style.animation = "none";
+    } else {
+        magicball.style.animation = "float 6s ease-in-out infinite";
+        shadow.style.animation = "pulse 6s ease-in-out infinite";
+    }
+})
 
 class MagicBall {
     constructor(_element, _index) {
@@ -16,7 +48,7 @@ class MagicBall {
         this.img = document.createElement("img");
         this.src = `./img/magic8ball_${this.index}.png`
     }
-    initialize() {
+    draw() {
         this.element.appendChild(this.img);
         this.img.setAttribute("id", this.id);
         document.getElementById(this.id).src = this.src;
@@ -33,33 +65,14 @@ class MagicBall {
     }
 }
 
-console.log(magicball)
-
-function randomNumber(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 let startBall = new MagicBall(magicball, "start");
-startBall.initialize();
+startBall.draw();
 
-let arr = [];
-
-for (let i = 1; i <= 20; i++) {
-    let _src = `./img/magic8ball_${i}.png`
-    arr.push(_src);
-}
-
-console.log(arr);
-
-animbutton.addEventListener("click", () => {
-    if (animBTN.input.checked) {
-        magicball.style.animation = "none";
-        shadow.style.animation = "none";
+colapsableDoc.addEventListener("change", () => {
+    if (testBurger.input.checked) {
+        history.styleActive();
     } else {
-        magicball.style.animation = "float 6s ease-in-out infinite";
-        shadow.style.animation = "pulse 6s ease-in-out infinite";
+        history.style();
     }
 })
 
@@ -71,14 +84,71 @@ let question = new JSInput(
     "",
     "1em"
 );
+question.draw();
 
-question.initialize();
+let sourceArray = [];
+for (let i = 1; i <= 20; i++) {
+    let _src = `./img/magic8ball_${i}.png`
+    sourceArray.push(_src);
+}
+let answerArray = [
+    "It is certain",
+    "It is decidedly so",
+    "Without a doupt",
+    "Yes, definately",
+    "You may rely on it",
+    "As I see it, yes",
+    "Most likely",
+    "Outlook good",
+    "Yes",
+    "Signs point to yes",
+    "Reply hazy try again",
+    "Ask again later",
+    "Better not tell you now",
+    "Cannot predict now",
+    "Concentrate and ask again",
+    "Dont count on it",
+    "My reply is no",
+    "My sources say no",
+    "Outlook not so good",
+    "Very doubtful"
+]
+
+function getSessionStorage() {
+    let sessionStorageArr = []
+    console.log(sessionStorage.length);
+    let indexHolder = 0;
+    for (let i = 0; i < sessionStorage.length; i++) {
+        console.log(sessionStorage.length)
+        let key = sessionStorage.key(i);
+        let storedArray = JSON.parse(sessionStorage.getItem(key));
+
+        if (key !== "IsThisFirstTime_Log_From_LiveServer") {
+            let _key = `theQuestion${indexHolder}`;
+            sessionStorageArr.push(JSON.parse(sessionStorage.getItem(_key)));
+            indexHolder++;
+        }
+
+    }
+    console.log(sessionStorageArr);
+    return sessionStorageArr;
+}
+
+
+
+
+let testtable = new JSTableMaker(history.background, null, getSessionStorage());
+testtable.draw();
 
 theQuestion.addEventListener("submit", (event) => {
-    console.log("event TRIGGER");
     event.preventDefault();
-    startBall.src = arr[randomNumber(1, 20)];
+
+    let randomIndex = randomNumber(1, 20) - 1;
+    let datetime = `${new Date().today()} ${new Date().timeNow()}`;
+    startBall.src = sourceArray[randomIndex];
     startBall.reDraw();
-    question.saveToSession();
+    let record = [question.input.value, answerArray[randomIndex], datetime]
+    sessionStorage.setItem(question.getKey(), JSON.stringify(record));
     theQuestion.reset();
+    testtable.reDraw(getSessionStorage());
 });
