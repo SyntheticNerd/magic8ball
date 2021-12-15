@@ -30,7 +30,7 @@ let animBTN = new JSCheckBox(animbutton, 1, "Animation </br> Active", "Animation
 animBTN.draw();
 
 animbutton.addEventListener("click", () => {
-    sessionStorage.clear();
+    // sessionStorage.clear();
     if (animBTN.input.checked) {
         magicball.style.animation = "none";
         shadow.style.animation = "none";
