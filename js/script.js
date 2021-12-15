@@ -78,7 +78,7 @@ colapsableDoc.addEventListener("change", () => {
 
 let question = new JSInput(
     theQuestion,
-    "Ask your Question and the Ord will Decide",
+    "Ask a Question Here",
     "var(--textColorPrimary)",
     "300px",
     "",
