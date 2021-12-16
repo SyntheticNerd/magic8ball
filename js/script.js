@@ -156,6 +156,14 @@ theQuestion.addEventListener("submit", (event) => {
         sessionStorage.setItem(question.getKey(), JSON.stringify(record));
         theQuestion.reset();
         testtable.reDraw(getSessionStorage());
+    } else if (event.target[1].value.match(/(?=.*(?:^|\W)answer(?:$|\W))+(?=.*(?:^|\W)everything(?:$|\W))/i)) {
+        console.log("42");
+        startBall.src = "./img/magic8ball_mol.png";
+        startBall.reDraw();
+        let record = [event.target[1].value, "42", datetime]
+        sessionStorage.setItem(question.getKey(), JSON.stringify(record));
+        theQuestion.reset();
+        testtable.reDraw(getSessionStorage());
     } else {
         console
         startBall.src = sourceArray[randomIndex];
