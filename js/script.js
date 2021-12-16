@@ -168,7 +168,6 @@ theQuestion.addEventListener("submit", (event) => {
     const sleep = setTimeout(() => {
         startBall.src = './img/magic8ball_start.png';
         startBall.reDraw();
-
-    }, 5000);
+    }, 8000);
 
 });
