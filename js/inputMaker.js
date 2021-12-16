@@ -40,6 +40,7 @@ class JSInput {
         this.input.style.width = this.width;
         this.input.style.height = this.height;
         this.input.style.fontSize = this.fontSize;
+        this.input.style.textAlign = "center";
 
         this.label.style.color = this.color;
         this.label.style.position = "absolute";
