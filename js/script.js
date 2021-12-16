@@ -165,5 +165,10 @@ theQuestion.addEventListener("submit", (event) => {
         theQuestion.reset();
         testtable.reDraw(getSessionStorage());
     }
+    const sleep = setTimeout(() => {
+        startBall.src = './img/magic8ball_start.png';
+        startBall.reDraw();
+
+    }, 5000);
 
 });
