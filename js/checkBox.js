@@ -45,6 +45,7 @@ class JSCheckBox {
         this.text.style.textAlign = "center";
         this.text.style.margin = ".5em"
         this.text.style.textShadow = "none";
+        this.text.style.pointerEvents = "none";
 
         this.input.style.position = "absolute";
         this.input.style.visibility = "hidden";
@@ -129,11 +130,14 @@ class JSSubmitBtn extends JSCheckBox {
         });
         this.label.addEventListener("pointerdown", () => {
             this.styleActive();
-            const mobielfreindly = setTimeout(() => {
-                this.styleDefault();
-            }, 500)
         });
         this.label.addEventListener("pointerup", () => {
+            this.styleDefault();
+        });
+        this.label.addEventListener("touchstart", () => {
+            this.styleActive();
+        });
+        this.label.addEventListener("touchend", () => {
             this.styleDefault();
         });
     }
