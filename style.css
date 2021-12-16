@@ -5,10 +5,13 @@
     --elev1dp: rgba(30, 30, 30, 1);
 
     --textColorPrimary: rgba(255, 255, 255, 0.8);
-    --textColorDisabled: rgba(255, 255, 255, 0.2);
+    --textColorSecondary: rgba(255, 255, 255, 0.5);
     --textColorEnabled: rgba(130, 250, 100, 0.8);
-    --textColorError: rgba(250, 50, 50, 0.5);
+    --textColorEnabledHover: rgba(130, 250, 70, 1);
+    --textColorDisabled: rgba(250, 50, 50, 0.5);
+    --textColorDisabledHover: rgba(250, 50, 0, 0.8);
 }
+
 
 * {
     margin: 0px;
@@ -72,12 +75,19 @@ body {
 }
 
 #theQuestion {
+    width: 100vw;
     position: relative;
     display: flex;
     top: -10vh;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
+
+#submit label {
+    transform: translate(-50%, 3em)
+}
+
 
 #collapsableDoc {
     position: relative;

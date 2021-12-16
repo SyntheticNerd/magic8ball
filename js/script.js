@@ -26,12 +26,17 @@ testBurger.draw();
 let history = new GridDoc(colapsableDoc, null, "1px", "1px", "600px", "500px");
 history.draw();
 
-let animBTN = new JSCheckBox(animbutton, 1, "Animation </br> Active", "Animation </br> Inactive");
+let animBTN = new JSCheckBox(animbutton, 1, "Activate </br> Animation", "Deactivate </br> Animation");
+animBTN.input.checked = true;
 animBTN.draw();
+
+
+let submitBTN = new JSSubmitBtn(submit, "1.5em", "Submit", "Submit");
+submitBTN.draw();
 
 animbutton.addEventListener("click", () => {
     // sessionStorage.clear();
-    if (animBTN.input.checked) {
+    if (!animBTN.input.checked) {
         magicball.style.animation = "none";
         shadow.style.animation = "none";
     } else {
@@ -134,9 +139,6 @@ function getSessionStorage() {
     return sessionStorageArr;
 }
 
-
-
-
 let testtable = new JSTableMaker(history.background, null, getSessionStorage());
 testtable.draw();
 
@@ -145,10 +147,23 @@ theQuestion.addEventListener("submit", (event) => {
 
     let randomIndex = randomNumber(1, 20) - 1;
     let datetime = `${new Date().today()} ${new Date().timeNow()}`;
-    startBall.src = sourceArray[randomIndex];
-    startBall.reDraw();
-    let record = [question.input.value, answerArray[randomIndex], datetime]
-    sessionStorage.setItem(question.getKey(), JSON.stringify(record));
-    theQuestion.reset();
-    testtable.reDraw(getSessionStorage());
+    console.log(event.target);
+    if (event.target[1].value.match(/(?=.*(?:^|\W)meaning(?:$|\W))+(?=.*(?:^|\W)life(?:$|\W))/i)) {
+        console.log("42");
+        startBall.src = "./img/magic8ball_mol.png";
+        startBall.reDraw();
+        let record = [event.target[1].value, "42", datetime]
+        sessionStorage.setItem(question.getKey(), JSON.stringify(record));
+        theQuestion.reset();
+        testtable.reDraw(getSessionStorage());
+    } else {
+        console
+        startBall.src = sourceArray[randomIndex];
+        startBall.reDraw();
+        let record = [event.target[1].value, answerArray[randomIndex], datetime]
+        sessionStorage.setItem(question.getKey(), JSON.stringify(record));
+        theQuestion.reset();
+        testtable.reDraw(getSessionStorage());
+    }
+
 });
