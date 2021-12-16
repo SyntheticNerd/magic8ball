@@ -129,6 +129,9 @@ class JSSubmitBtn extends JSCheckBox {
         });
         this.label.addEventListener("pointerdown", () => {
             this.styleActive();
+            const mobielfreindly = setTimeout(() => {
+                this.styleDefault();
+            }, 500)
         });
         this.label.addEventListener("pointerup", () => {
             this.styleDefault();
