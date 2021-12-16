@@ -1,7 +1,7 @@
 This application if a Magic 8 Ball Simulator.
 It is designed to be asked yes or no Question and present you an answer "Randomly"
 
-I created 7 classes to perform these actions. over 90% of the code is JS
+I created 7 classes to perform these actions. over 85% of the code is JS
 
 The JS classes handle creating the data and UI.
 The css is used primarily to position elements in the page.
