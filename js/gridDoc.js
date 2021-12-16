@@ -117,7 +117,7 @@ class JSTableMaker {
         _element.style.textAlign = "center";
         _element.style.width = "300px"
         _element.style.padding = "16px";
-        _element.style.border = "1px solid var(--textColorDisabled)";
+        _element.style.border = "1px solid var(--textColorSecondary)";
     }
     styleRow(_element) {
         _element.style.width = "100%";
