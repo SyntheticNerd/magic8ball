@@ -21,7 +21,7 @@ https://syntheticdesigner.github.io/magic8ball/
 * Frontend: HTML | CSS | More JavaScript 
 
 ## <a name="app"></a>About The App
-* I created 7 classes to perform these actions. over 85% of the code is JS. The JS classes handle creating the data and UI. The css is used primarily to position elements in the page. Most styling is done within the JS classes. I wanted each class to modular allowing me to add these features to future applications with little to no aditional code. They can be created and attached to HMTL elements Dynamically and then positioned using CSS
+I created 7 classes to perform these actions. over 85% of the code is JS. The JS classes handle creating the data and UI. The css is used primarily to position elements in the page. Most styling is done within the JS classes. I wanted each class to modular allowing me to add these features to future applications with little to no aditional code. They can be created and attached to HMTL elements Dynamically and then positioned using CSS
 ## <a name="button"></a>JS Button Class
 The First button I developed is realy a checkbox I set up to act like a toggle for turning things on and off. I made this one so a user can switch the animations on the page on and off. In UX design it is a common observation that animations especially infinite ones can be very distracting so haveing the option to turn them off is good.
 Constructor:
