@@ -92,6 +92,8 @@ colapsableDoc.addEventListener("change", () => {
     }
 })
 ```
+Code Pen: 
+https://codepen.io/syntheticdesigner/pen/GRMNxOw
 
 ## <a name="plan"></a>Future Developement
 * If i continue with this project i might add a timeout and shake animation if someone asks the meaning of life to simulate the orb processing
