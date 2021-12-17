@@ -104,6 +104,8 @@ Lastly added functionality that extends the scope of the premise is that if some
 This project is a good demonstration of intermediate Javascript methods using a variety of features available in Javascript. I would like to in the future continue developing an actual AI that can do a lot more than answer yes or no questions.
 
 ## <a name="connect"></a>Connect
-
+Please reach out if you have any questions, comments, concerns.
+https://www.linkedin.com/in/andrew-schroepfer/
+https://andrewsch.myportfolio.com/
 
 
