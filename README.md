@@ -105,7 +105,9 @@ This project is a good demonstration of intermediate Javascript methods using a 
 
 ## <a name="connect"></a>Connect
 Please reach out if you have any questions, comments, concerns.
+LinkedIn:
 https://www.linkedin.com/in/andrew-schroepfer/
+Portfolio:
 https://andrewsch.myportfolio.com/
 
 
