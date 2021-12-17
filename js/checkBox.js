@@ -38,6 +38,7 @@ class JSCheckBox {
         this.label.style.display = "flex";
         this.label.style.alignItems = "center";
         this.label.style.justifyContent = "center";
+        this.label.style.padding = ".5em 1em";
 
         //Text Styles
         this.text.innerHTML = `${this.defaultText}`;
