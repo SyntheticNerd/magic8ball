@@ -18,14 +18,10 @@ class JSBurgerMenu extends JSCheckBox {
         this.label.style.display = "flex";
         this.label.style.alignItems = "center";
         this.label.style.justifyContent = "center";
-        this.label.style.transform = "translate(-50%,-50%)"
+        // this.label.style.transform = "translate(-50%,-50%)"
         this.label.style.zIndex = "3";
         this.label.style.boxShadow = "4px 4px 4px var(--nmShadow1)";
-
-
         this.text.style.position = "absolute";
-
-
         this.input.style.position = "absolute";
         this.input.style.visibility = "hidden";
 
