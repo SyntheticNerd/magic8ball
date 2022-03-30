@@ -121,10 +121,8 @@ let answerArray = [
 
 function getSessionStorage() {
     let sessionStorageArr = []
-    console.log(sessionStorage.length);
     let indexHolder = 0;
     for (let i = 0; i < sessionStorage.length; i++) {
-        console.log(sessionStorage.length)
         let key = sessionStorage.key(i);
         let storedArray = JSON.parse(sessionStorage.getItem(key));
 
@@ -135,7 +133,6 @@ function getSessionStorage() {
         }
 
     }
-    console.log(sessionStorageArr);
     return sessionStorageArr;
 }
 
@@ -147,9 +144,7 @@ theQuestion.addEventListener("submit", (event) => {
 
     let randomIndex = randomNumber(1, 20) - 1;
     let datetime = `${new Date().today()} ${new Date().timeNow()}`;
-    console.log(event.target);
     if (event.target[1].value.match(/(?=.*(?:^|\W)meaning(?:$|\W))+(?=.*(?:^|\W)life(?:$|\W))/i)) {
-        console.log("42");
         startBall.src = "./img/magic8ball_mol.png";
         startBall.reDraw();
         let record = [event.target[1].value, "42", datetime]
@@ -157,7 +152,6 @@ theQuestion.addEventListener("submit", (event) => {
         theQuestion.reset();
         testtable.reDraw(getSessionStorage());
     } else if (event.target[1].value.match(/(?=.*(?:^|\W)answer(?:$|\W))+(?=.*(?:^|\W)everything(?:$|\W))/i)) {
-        console.log("42");
         startBall.src = "./img/magic8ball_mol.png";
         startBall.reDraw();
         let record = [event.target[1].value, "42", datetime]
@@ -165,7 +159,6 @@ theQuestion.addEventListener("submit", (event) => {
         theQuestion.reset();
         testtable.reDraw(getSessionStorage());
     } else {
-        console
         startBall.src = sourceArray[randomIndex];
         startBall.reDraw();
         let record = [event.target[1].value, answerArray[randomIndex], datetime]
