@@ -43,9 +43,9 @@ body {
 }
 
 .magic8ball {
-    width: 100%;
-    height: auto;
     position: relative;
+    width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -61,24 +61,18 @@ body {
 
 .shadow {
     transform: translateY(-10%) perspective(20px) rotateX(6deg) scale(1, .4);
-    /* position: absolute; */
-    width: min(50%, 300px);
-    height: 30vh;
-    bottom: 0;
+    padding: 8%;
     background-color: black;
     border-radius: 50%;
-    background: radial-gradient(rgba(0, 0, 0, 0.8) 0px, transparent 10vh);
+    background: radial-gradient(rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0) 70%);
     pointer-events: none;
-
-
     animation: pulse 6s ease-in-out infinite;
 }
 
 #theQuestion {
-    width: 100vw;
+    /* width: 100vw; */
     position: relative;
     display: flex;
-    top: -10vh;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -91,7 +85,6 @@ body {
 
 #collapsableDoc {
     position: relative;
-    top: -2.5em;
     height: auto;
     /* padding-top: 3.5em; */
     padding-left: 6em;
