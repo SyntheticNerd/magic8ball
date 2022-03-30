@@ -31,7 +31,6 @@ body {
 }
 
 .topbox{
-    margin-top: 64px;
     padding: 32px;
     width:100%;
     display: flex;
