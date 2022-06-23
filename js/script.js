@@ -126,13 +126,13 @@ function getSessionStorage() {
         let key = sessionStorage.key(i);
         let storedArray = JSON.parse(sessionStorage.getItem(key));
 
-        if (key !== "IsThisFirstTime_Log_From_LiveServer") {
-            let _key = `theQuestion${indexHolder}`;
-            sessionStorageArr.push(JSON.parse(sessionStorage.getItem(_key)));
-            indexHolder++;
+        if (key.includes("theQuestion")) {
+            console.log(key)
+            sessionStorageArr.push(JSON.parse(sessionStorage.getItem(key)));
         }
 
     }
+    console.log(sessionStorageArr);
     return sessionStorageArr;
 }
 
