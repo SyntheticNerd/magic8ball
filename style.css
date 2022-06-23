@@ -1,8 +1,8 @@
 :root {
-    --background: #101010;
-    --nmShadow1: rgba(7, 7, 7, 1);
+    --background: #272727;
+    --nmShadow1: rgba(7, 7, 7, 0.4);
     --nmShadow2: rgba(62, 62, 62, 0.5);
-    --elev1dp: rgba(30, 30, 30, 1);
+    --elev1dp: rgb(52, 52, 52);
 
     --textColorPrimary: rgba(255, 255, 255, 0.8);
     --textColorSecondary: rgba(255, 255, 255, 0.5);
