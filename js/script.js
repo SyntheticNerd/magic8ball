@@ -127,12 +127,10 @@ function getSessionStorage() {
         let storedArray = JSON.parse(sessionStorage.getItem(key));
 
         if (key.includes("theQuestion")) {
-            console.log(key)
             sessionStorageArr.push(JSON.parse(sessionStorage.getItem(key)));
         }
 
     }
-    console.log(sessionStorageArr);
     return sessionStorageArr;
 }
 
